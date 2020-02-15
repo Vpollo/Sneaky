@@ -25,6 +25,7 @@
 body, html {
 	height: 100%;
 	font-family: sans-serif;
+    position: fixed;
 }
 
 /* ------------------------------------ */
@@ -71,11 +72,17 @@ textarea:focus, input:focus {
   border-color: transparent !important;
 }
 
+.little_button {
+  background-color: #00ad5f;
+  text-align: center;
+  color: #ffffff;
+}
 /* ------------------------------------ */
 button {
 	outline: none !important;
 	border: none;
-	background: transparent;
+	background: #00ad5f;
+    color: #ffffff;
 }
 
 button:hover {
