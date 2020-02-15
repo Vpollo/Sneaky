@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>front_end_html</title>
+    <script src="{{url_for('static', filename='data_test.js')}}"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+
+<div align="center">
+
+    <h1>Sneaky Display Page</h1>
+    <p>
+        Wanna Find Free Shits to Eat at Carnegie Mellon? <br>
+        Then use our Sneaky, you greedy little prick!
+    </p>
+    <p>
+        <br>
+        <button onclick="delete_row()">Delete Row</button>
+        <button onclick="main()">Refresh</button>
+        <br>
+        <script>
+            const HTTP = new XMLHttpRequest();
+            const url = 'http://localhost:5000/posts';
+            HTTP.open("POST", url, true);
+            HTTP.send();
+            HTTP.onreadystatechange = function(ev) {
+                console.log(HTTP.readyState);
+                if (HTTP.readyState === 4) {
+                    console.log(HTTP.responseText);
+                    create_table(JSON.parse(HTTP.responseText));
+                }
+            }
+        </script>
+    </p>
+
+    <table align="center" id="data_table">
+        <tr>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Time</th>
+        </tr>
+    </table>
+
+</div>
+
+
+</body>
+</html>

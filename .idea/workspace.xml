@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="272cdd16-4388-4504-9c5d-6fd7c82b2c9f" name="Default Changelist" comment="" />
+    <list default="true" id="272cdd16-4388-4504-9c5d-6fd7c82b2c9f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front_end/data_test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front_end/index.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +33,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="CompoundRunConfigurationType">
@@ -45,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581736097379</updated>
-      <workItem from="1581736102569" duration="4645000" />
+      <workItem from="1581736102569" duration="14038000" />
     </task>
     <servers />
   </component>
@@ -61,10 +66,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="560" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1581736583476" />
+    <state x="461" y="150" key="SettingsEditor" timestamp="1581746573632">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="150" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581746573632" />
     <state x="1120" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1581736106891">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1120" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581736106891" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1581756257316">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581756257316" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1581740385664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
