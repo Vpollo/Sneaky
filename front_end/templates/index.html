@@ -21,14 +21,19 @@
         <br>
         <button onclick="delete_row()">Delete Row</button>
         <button onclick="main()">Refresh</button>
+        <button onclick="apply_css()">Apply CSS</button>
         <br>
+        <!-- POST REQUEST TO EXTRACT TABLE FROM BACKEND -->
         <script>
             const HTTP = new XMLHttpRequest();
+            //To make connection to another PC on the same LAN, change url to
+            //his server, i.e. "128.237.123.187:5000/"
             const url = 'http://localhost:5000/posts';
             HTTP.open("POST", url, true);
             HTTP.send();
             HTTP.onreadystatechange = function(ev) {
                 console.log(HTTP.readyState);
+                //Check Status: 4 Fully Received
                 if (HTTP.readyState === 4) {
                     console.log(HTTP.responseText);
                     create_table(JSON.parse(HTTP.responseText));
@@ -36,6 +41,16 @@
             }
         </script>
     </p>
+
+    <!-- Embedded JS Functions -->
+    <script>
+        function apply_css(){
+            var top_layer = document.getElementsByTagName('th');
+            for(var i=0; i<top_layer.length; i++){
+                top_layer[i].setAttribute("class", "cyka_class");
+            }
+        }
+    </script>
 
     <table align="center" id="data_table">
         <tr>
