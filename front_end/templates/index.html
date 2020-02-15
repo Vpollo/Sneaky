@@ -9,59 +9,125 @@
 </head>
 
 <body>
-
-<div align="center">
-
-    <h1>Sneaky Display Page</h1>
-    <p>
-        Wanna Find Free Shits to Eat at Carnegie Mellon? <br>
-        Then use our Sneaky, you greedy little prick!
-    </p>
-    <p>
-        <br>
-        <button onclick="delete_row()">Delete Row</button>
-        <button onclick="main()">Refresh</button>
-        <button onclick="apply_css()">Apply CSS</button>
-        <br>
-        <!-- POST REQUEST TO EXTRACT TABLE FROM BACKEND -->
-        <script>
-            const HTTP = new XMLHttpRequest();
-            //To make connection to another PC on the same LAN, change url to
-            //his server, i.e. "128.237.123.187:5000/"
-            const url = 'http://localhost:5000/posts';
-            HTTP.open("POST", url, true);
-            HTTP.send();
-            HTTP.onreadystatechange = function(ev) {
-                console.log(HTTP.readyState);
-                //Check Status: 4 Fully Received
-                if (HTTP.readyState === 4) {
-                    console.log(HTTP.responseText);
-                    create_table(JSON.parse(HTTP.responseText));
-                }
-            }
-        </script>
-    </p>
-
     <!-- Embedded JS Functions -->
     <script>
         function apply_css(){
-            var top_layer = document.getElementsByTagName('th');
-            for(var i=0; i<top_layer.length; i++){
-                top_layer[i].setAttribute("class", "cyka_class");
+            var row_layer = document.getElementsByTagName('tr');
+            var col_layer = document.getElementsByTagName('td');
+            var count = 0;
+            for(var i=0; i<row_layer.length; i++){
+                if (!(row_layer[i].getAttribute("class") === "row100 head")) {
+                    row_layer[i].setAttribute("class", "row100 body");
+                }
             }
+            for(var j=0; j<col_layer.length; j++){
+                var index = count % 3 + 1;
+                col_layer[j].setAttribute("class", `cell100 column${index}`);
+                count = count +1;
+                //console.log(count);
+            }
+        }
+        function create_table(synthesized_data)
+        {
+            var table = document.getElementById("info_table");
+
+            for (var key in synthesized_data)
+            {
+                //Value is each event as an JS Struct Obj
+                var value = synthesized_data[key];
+
+                //Get attributes
+                var title = value['title'];
+                var location = value['location'];
+                var time = value['time'];
+
+                //Insert Rows and make their cells
+                var row = table.insertRow(0);
+                var tit_cell = row.insertCell(0);
+                var loc_cell = row.insertCell(1);
+                var tim_cell = row.insertCell(2);
+
+                //Apply values into the tag in HTML
+                tit_cell.innerHTML = title;
+                loc_cell.innerHTML = location;
+                tim_cell.innerHTML = time;
+
+                //Test Code
+                console.log(time);
+            }
+            return 0;
         }
     </script>
 
-    <table align="center" id="data_table">
-        <tr>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Time</th>
-        </tr>
-    </table>
+    <!--Main-->
+    <div align="center">
 
-</div>
+        <!--Useless Texts-->
+        <div>
+            <h1>Sneaky Display Page</h1>
+            <p>
+                Wanna Find Free Shits to Eat at Carnegie Mellon? <br>
+                Then use our Sneaky, you greedy little prick!
+            </p>
+        </div>
 
+        <!--Table Structure-->
+        <div class="limiter">
+            <div class="container-table100">
+                <div class="wrap-table100">
+                    <div class="table100 ver1 m-b-110">
+
+                        <div class="table100-head">
+                            <table align="center">
+                                <thead>
+                                <tr class="row100 head">
+                                    <th class="cell100 column1">Name</th>
+                                    <th class="cell100 column2">Time</th>
+                                    <th class="cell100 column3">Location</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+                        <div class="table100-body js-pscroll">
+                            <table id="info_table">
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Extract Data-->
+        <p>
+            <br>
+            <button onclick="delete_row()">Delete Row</button>
+            <button onclick="main()">Refresh</button>
+            <button onclick="apply_css()">Apply CSS</button>
+            <br>
+            <!-- POST REQUEST TO EXTRACT TABLE FROM BACKEND -->
+            <script>
+                const HTTP = new XMLHttpRequest();
+                //To make connection to another PC on the same LAN, change url to
+                //his server, i.e. "128.237.123.187:5000/"
+                const url = 'http://localhost:5000/posts';
+                HTTP.open("POST", url, true);
+                HTTP.send();
+                HTTP.onreadystatechange = function(ev) {
+                    console.log(HTTP.readyState);
+                    //Check Status: 4 Fully Received
+                    if (HTTP.readyState === 4) {
+                        console.log(HTTP.responseText);
+                        create_table(JSON.parse(HTTP.responseText));
+                    }
+                }
+            </script>
+        </p>
+
+    </div>
 
 </body>
 </html>
