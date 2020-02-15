@@ -25,27 +25,32 @@ def index():
 
 def make_test_JSON():
     a = {
-            'title': "Tartan eat shit",
-            'location': "CAUC McConomy",
-            'time': "tomorrow at 6"
+            'title': "Math Club Night",
+            'location': "CUC McConomy",
+            'time': "FEB 18th; 8 PM"
         }
     b = {
-            'title': "Tartan eat suckers",
-            'location': "CAUC sucks",
-            'time': "tomorrow at 666"
+            'title': "Robot Club",
+            'location': "DH 2315",
+            'time': "MAR 2nd; 3 AM"
         }
     c = {
-            'title': "Lucas is shit",
-            'location': "Jesus Fuck",
-            'time': "never"
+            'title': "University Health Center",
+            'location': "POS 103",
+            'time': "JULY 7th; 2 AM"
         }
     d = {
+            'title': "Engineering Career Fair",
+            'location': "The Cut",
+            'time': "APR 20th; 6 PM"
+    }
+    return_data = {
             'a': a,
             'b': b,
-            'c': c
+            'c': c,
+            'd': d
         }
-    e = jsonify(d)
-    return e
+    return jsonify(return_data)
 
 if __name__ == '__main__':
     # The host has to be public 0.0.0.0 for broadcasting
