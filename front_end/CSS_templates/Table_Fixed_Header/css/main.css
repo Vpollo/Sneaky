@@ -88,6 +88,15 @@ iframe {
 
 /*//////////////////////////////////////////////////////////////////
 [ Scroll bar ]*/
+body, html{
+  background-image: url('unnamed.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Scroll bar ]*/
 .js-pscroll {
   position: relative;
   overflow: hidden;
@@ -143,7 +152,7 @@ iframe {
 .container-table100 {
   width: 100%;
   min-height: 100vh;
-  background: #fff;
+  /*background: #fff;*/
 
   display: -webkit-box;
   display: -webkit-flex;
