@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>front_end_html</title>
     <script src="{{url_for('static', filename='data_test.js')}}"></script>
-    <!--===============================================================================================-->	
+    <!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="/static/images/icons/favicon.ico"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
@@ -171,7 +171,7 @@
                 //his server, i.e. "http://128.237.123.187:5000/posts"
                 //Search Results 128.237.135.99
 
-                const url = 'http://128.237.135.99:5000/posts';
+                const url = 'http://128.237.185.8:5000/posts';
                 HTTP.open("POST", url, true);
                 HTTP.send();
                 HTTP.onreadystatechange = function(ev) {
@@ -183,12 +183,17 @@
                         apply_css();
                     }
                 }
-                //create_table(JSON.parse(f()));
-                //apply_css();
             </script>
         </p>
 
     </div>
+
+    <div align="center" style="position: relative">
+        <p id="ending" style="position: fixed; bottom: 10px; width: 100%; text-align: center">
+            © Copyright 2020 Li, Li, Wan, Wu
+        </p>
+    </div>
+
 
 </body>
 </html>
