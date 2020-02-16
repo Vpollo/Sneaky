@@ -31,7 +31,6 @@ def getEmail():
         body = get_first_text_block(msg)
         file1.write(body)
         title.append(msg['SUBJECT'])
-        # print(msg['SUBJECT'])
     file1.close()
     return (f"{time}.txt", title)
 
@@ -41,24 +40,21 @@ def parse():
     filetext = textfile.read()
     textfile.close()
     location = re.compile(r'[A-Z][a-z]+\s[RH]\w+\s[A-Z]?\d+')
-    date = re.compile(r'(\d\d?/\d\d?)')
-    time = re.compile(r'\d:\d\d\w?\w?-\d:\d\d\w\w')
+    date = re.compile(r'(\d\d?/\d\d?)|\d:\d\d\w?\w?-\d:\d\d\w\w')
+    # time = re.compile(r'\d:\d\d\w?\w?-\d:\d\d\w\w')
     locationRes = re.findall(location, filetext)
-    timeRes = re.findall(time, filetext)
     dateRes = re.findall(date, filetext)
     res = dict()
     for i in range(len(subjectRes)):
-        res[subjectRes[i]] = {'Location': 0, 'Date': 0, 'Time': 0}
-        res[subjectRes[i]]['Location'] = locationRes[i]
-        res[subjectRes[i]]['Date'] = dateRes[i]
-        res[subjectRes[i]]['Time'] = timeRes[i]
-    # print (res)
+        res[i] = {'title': 0, 'location': 0, 'time': 0}
+        res[i]['title'] = subjectRes[i]
+        res[i]['location'] = locationRes[i]
+        res[i]['time'] = dateRes[i]
     return res
 
 def processData():
     resultDict = parse()
     resultJSON = json.dumps(resultDict)
-    # print (resultJSON)
     return resultJSON
 
 processData()
