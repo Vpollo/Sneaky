@@ -6,20 +6,20 @@
     <title>front_end_html</title>
     <script src="{{url_for('static', filename='data_test.js')}}"></script>
     <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="../CSS_templates/Table_Fixed_Header/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="/static/images/icons/favicon.ico"/>
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="/static/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="/static/vendor/perfect-scrollbar/perfect-scrollbar.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="/static/css/util.css">
-        <link rel="stylesheet" type="text/css" href='/static/css/main.css'>
+    <link rel="stylesheet" type="text/css" href="/static/css/util.css">
+    <link rel="stylesheet" type="text/css" href='/static/css/main.css'>
     <!--===============================================================================================-->
 </head>
 
@@ -106,6 +106,9 @@
             }
             return 0;
         }
+        /*function f(){
+            return '{"0": {"title": "[Math Club] Po-Shen Loh Math Club Talk!", "location": "Porter Hall 100", "time": "2/12 5:30PM-6:30PM"}, "1": {"title": "A Discussion with Kelauni Cook", "location": "Hamburg Hall 1007", "time": "2/18 4:30-5:30pm"}, "2": {"title": "Note from Physics: Party, Dinner, Banquet, and more", "location": "Wean Hall 7316", "time": "2/26 4:30-6:00pm"}, "3": {"title": "Women in IS Mentoring Program", "location": "Hamburg Hall 1006", "time": "2/13 4:30-5:30pm"}, "4": {"title": "LOreal Brandstorm Case Competition Workshop", "location": "Doherty Hall 2210", "time": "2/4 5:00pm-6:30pm"}}';
+        }*/
     </script>
 
     <!--Main-->
@@ -113,7 +116,7 @@
 
         <!--Useless Texts-->
         <div>
-            <p><br><br></p>
+            <p><br><br><br><br></p>
             <h1>SNEAKY</h1>
             <br><br>
             <p id="intro">
@@ -154,7 +157,6 @@
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -166,7 +168,9 @@
             <script>
                 const HTTP = new XMLHttpRequest();
                 //To make connection to another PC on the same LAN, change url to
-                //his server, i.e. "128.237.123.187:5000/posts
+                //his server, i.e. "http://128.237.123.187:5000/posts"
+                //Search Results 128.237.135.99
+
                 const url = 'http://128.237.135.99:5000/posts';
                 HTTP.open("POST", url, true);
                 HTTP.send();
@@ -175,11 +179,12 @@
                     //Check Status: 4 Fully Received
                     if (HTTP.readyState === 4) {
                         console.log(HTTP.responseText);
-                        console.log(typeof HTTP.responseText);
-                        create_table(JSON.parse(`${HTTP.responseText}`));
+                        create_table(JSON.parse(HTTP.responseText));
                         apply_css();
                     }
                 }
+                //create_table(JSON.parse(f()));
+                //apply_css();
             </script>
         </p>
 

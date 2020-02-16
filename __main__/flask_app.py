@@ -1,8 +1,8 @@
 '''
 Main Flask Server Starter Codes
 '''
-
 from init_backend import runBackendProcess
+import parse
 from flask import Flask, render_template, jsonify, request
 import json
 
@@ -18,9 +18,11 @@ def test_page():
 @app.route("/posts", methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        data = runBackendProcess()#make_test_JSON()
+        data = parse.processData() #runBackendProcess()# make_test_JSON()
         #Ensures that data is of JSON Type
-        return data
+        data1 = runBackendProcess()
+        data2 = make_test_JSON()
+        return data1
     else:
         print('Incoming..')
         print(request.get_json())  # parse as JSON
